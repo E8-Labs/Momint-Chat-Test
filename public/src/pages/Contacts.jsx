@@ -6,7 +6,7 @@ import Logo from "../assets/logo.png";
 export default function Contacts({ contacts, changeChat }) {
   const navigate = useNavigate();
   const [currentUserName, setCurrentUserName] = useState(undefined);
-//   const [currentUserImage, setCurrentUserImage] = useState(undefined);
+  const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
   const user = JSON.parse(localStorage.getItem('chat-app-user'))
 //   currentUserName = user.user.username;
@@ -48,7 +48,7 @@ export default function Contacts({ contacts, changeChat }) {
                 >
                     <div className="avatar">
                       <img
-                        src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg"
+                        src={(user.user.image_url === null || user.user.image_url === "" ) ? "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg" : user.user.image_url}
                         alt="avatar"
                       />
                     </div>

@@ -24,7 +24,7 @@ var [contacts, setContacts] = useState([])
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentChat, setCurrentChat] = useState(undefined);
   const user = JSON.parse(localStorage.getItem('chat-app-user'))
-  console.log("Token is " + user.token)
+  // console.log("Token is " + user.token)
 
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
@@ -78,7 +78,7 @@ var [contacts, setContacts] = useState([])
 
                       {
                         currentChat === undefined ? (<Welcome currentUser={user}></Welcome>) :
-                        <ChatContainer currentUser={user}></ChatContainer>
+                        <ChatContainer currentChat={currentChat}></ChatContainer>
 
                       }
                       

@@ -2,6 +2,7 @@ import react, {useState, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../assets/logo.png'
+import AppIcon from '../assets/appicon.svg'
 import axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,7 +32,7 @@ function Login(){
         if(data.data.status === true){
             console.log(data.data); // this will have the whole response from the api with status, message and data
             toast(`User logged in as ${data.data.data.user.name}`);
-            localStorage.setItem("chat-app-user", JSON.stringify(data.data.data));
+            localStorage.setItem(process.env.REACT_APP_LocalSavedUser, JSON.stringify(data.data.data));
             navigate("/")
         }
         else{
@@ -66,8 +67,8 @@ function Login(){
     <FormContainer>
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div className='brand'>
-                <img src={Logo} alt="Logo"/>
-                <h1>Momint Chats</h1>
+                <img src={AppIcon} alt="Logo"/>
+                <h1>Prompt.AI</h1>
             </div>
             
             <input type='email' placeholder='Email' name='email' onChange={e => handleChange(e)}></input>

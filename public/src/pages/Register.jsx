@@ -34,7 +34,7 @@ function Register(){
         });
         if (data.data.status == true){
           console.log(data.data.data.user);
-          localStorage.setItem("chat-app-user", JSON.stringify(data.data.data));
+          localStorage.setItem(process.env.REACT_APP_LocalSavedUser, JSON.stringify(data.data.data));
           toast("User registered");
           navigate("/")
         }

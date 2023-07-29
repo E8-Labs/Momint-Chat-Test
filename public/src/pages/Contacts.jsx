@@ -8,7 +8,7 @@ export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
-  const user = JSON.parse(localStorage.getItem('chat-app-user'))
+  const user = JSON.parse(localStorage.getItem(process.env.REACT_APP_LocalSavedUser))
 //   currentUserName = user.user.username;
 //   setCurrentUserName(user.user.username)
 //   useEffect( () => {
@@ -24,7 +24,7 @@ export default function Contacts({ contacts, changeChat }) {
   };
 
   const logoutCurrentuser = ()=>{
-    localStorage.removeItem('chat-app-user')
+    localStorage.removeItem(process.env.REACT_APP_LocalSavedUser)
     navigate("/login")
   }
 //   console.log("User in contact form is " + user.user.username)

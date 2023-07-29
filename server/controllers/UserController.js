@@ -111,11 +111,11 @@ const Profile = (req, res)=> {
             res.send({status: false, message: "Invalid token", data: null});
         }
         else{
-            res.send({data: authData.data, status: true, message: "My profile"});
+            res.send({data: authData.user, status: true, message: "My profile obtained"});
         }
     })
 }
-
+//users
 const Users = async (req, res)=>{
     JWT.verify(req.token, process.env.SecretJwtKey, async (err, authData)=>{
         if(authData){

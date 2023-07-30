@@ -208,7 +208,7 @@ class Conversation extends Component{
             // console.log("Should send message in sendMessage Function " + message)
             const user = JSON.parse(
                 localStorage.getItem(process.env.REACT_APP_LocalSavedUser)
-              )
+            )
             this.setState({
                 shouldSendMessage: false,
                 message: null,
